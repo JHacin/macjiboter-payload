@@ -24,5 +24,18 @@
       "dependsOn": ["^build"]
     }
   },
-  "defaultProject": "backend"
+  "defaultProject": "backend",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    }
+  }
 }
