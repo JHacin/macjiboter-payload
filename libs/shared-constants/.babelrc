@@ -4,7 +4,9 @@
       "@nrwl/web/babel",
       {
         "useBuiltIns": "usage",
-        "classProperties": { "loose": false }
+        "classProperties": {
+          "loose": false
+        }
       }
     ]
   ]

@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "paths": {
+      "@macjiboter/shared-constants": ["libs/shared-constants/src/index.ts"],
       "@macjiboter/shared-types": ["libs/shared-types/src/index.ts"]
     }
   },

@@ -5,6 +5,7 @@
     "backend": "apps/backend",
     "client": "apps/client",
     "client-e2e": "apps/client-e2e",
+    "shared-constants": "libs/shared-constants",
     "shared-types": "libs/shared-types"
   }
 }
