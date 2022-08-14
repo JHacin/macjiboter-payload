@@ -1,5 +1,8 @@
 import { buildConfig } from "payload/config";
-import { COUNTRY_SELECT_OPTIONS, DEFAULT_COUNTRY_SELECT_VALUE } from "./libs/shared-constants/src";
+import {
+  COUNTRY_SELECT_OPTIONS,
+  DEFAULT_COUNTRY_SELECT_VALUE,
+} from "../../../libs/shared-constants/src";
 
 export default buildConfig({
   collections: [
