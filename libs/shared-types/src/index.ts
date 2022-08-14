@@ -1,1 +1,2 @@
-export * from "./lib/shared-types";
+export * from "./lib/person";
+export * from "./lib/form";

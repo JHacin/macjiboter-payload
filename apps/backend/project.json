@@ -40,6 +40,12 @@
     "serve-dev": {
       "executor": "nx:run-commands",
       "options": {
+        "command": "nodemon --config apps/backend/nodemon.json --watch false"
+      }
+    },
+    "serve-dev-watch": {
+      "executor": "nx:run-commands",
+      "options": {
         "command": "nodemon --config apps/backend/nodemon.json"
       }
     },
