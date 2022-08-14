@@ -90,5 +90,18 @@ export const CatCollection: CollectionConfig = {
         },
       },
     },
+    {
+      name: "photos",
+      type: "array",
+      label: "Slike",
+      maxRows: 5,
+      fields: [
+        {
+          name: "photo",
+          type: "upload",
+          relationTo: "muce-slike",
+        },
+      ],
+    },
   ],
 };

@@ -43,3 +43,6 @@ Thumbs.db
 
 # Env files
 apps/backend/.env
+
+# ESLint
+.eslintcache
