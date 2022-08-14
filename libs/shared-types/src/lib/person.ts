@@ -1,4 +1,4 @@
 export enum PersonGender {
-  Male = "m",
-  Female = "f",
+  Male = "1",
+  Female = "2",
 }

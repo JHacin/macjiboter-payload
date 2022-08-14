@@ -2,6 +2,7 @@ import { buildConfig } from "payload/config";
 import path from "path";
 import { SponsorCollection } from "./app/collections/sponsor";
 import { DEFAULT_DATE_FORMAT } from "@macjiboter/shared-constants";
+import { CatCollection } from "./app/collections/cat";
 
 const LIB_KEYS = ["shared-constants", "shared-types"];
 
@@ -32,5 +33,5 @@ export default buildConfig({
     }),
     dateFormat: DEFAULT_DATE_FORMAT,
   },
-  collections: [SponsorCollection],
+  collections: [SponsorCollection, CatCollection],
 });

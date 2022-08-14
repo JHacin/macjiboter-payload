@@ -14,8 +14,7 @@ export const SponsorCollection: CollectionConfig = {
   },
   admin: {
     useAsTitle: "email",
-    disableDuplicate: true,
-    defaultColumns: ["email", "firstName", "lastName", "createdAt"],
+    defaultColumns: ["email", "firstName", "lastName"],
   },
   fields: [
     {
