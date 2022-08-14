@@ -37,6 +37,12 @@
         }
       }
     },
+    "serve-dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nodemon --config apps/backend/nodemon.json"
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],

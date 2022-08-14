@@ -1,10 +1,35 @@
 import { buildConfig } from "payload/config";
-import {
-  COUNTRY_SELECT_OPTIONS,
-  DEFAULT_COUNTRY_SELECT_VALUE,
-} from "../../../libs/shared-constants/src";
+import { COUNTRY_SELECT_OPTIONS, DEFAULT_COUNTRY_SELECT_VALUE } from "@macjiboter/shared-constants";
+import path from "path";
+
+const LIB_KEYS = ["shared-constants", "shared-types"];
+
+const LIB_ALIASES: Record<string, string> = LIB_KEYS.reduce((acc, curr) => {
+  const makeLibAlias = (name: string) => ({
+    key: `@macjiboter/${name}`,
+    modulePath: path.resolve(__dirname, `../../../libs/${name}/src/index.ts`),
+  });
+
+  const { key, modulePath } = makeLibAlias(curr);
+
+  acc[key] = modulePath;
+
+  return acc;
+}, {});
 
 export default buildConfig({
+  admin: {
+    webpack: (config) => ({
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          ...LIB_ALIASES,
+        },
+      },
+    }),
+  },
   collections: [
     {
       slug: "botri",
@@ -67,7 +92,7 @@ export default buildConfig({
           name: "address",
           type: "group",
           label: "Naslov",
-          // required: true,
+          required: true,
           fields: [
             {
               name: "streetAndHouseNumber",

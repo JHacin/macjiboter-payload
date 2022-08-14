@@ -1,0 +1,4 @@
+{
+  "ext": "ts,tsx",
+  "exec": "ts-node -r tsconfig-paths/register --project apps/backend/tsconfig.app.json apps/backend/src/main.ts"
+}
