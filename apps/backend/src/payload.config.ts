@@ -4,6 +4,7 @@ import { SponsorCollection } from "./app/collections/sponsor";
 import { DEFAULT_DATE_FORMAT } from "@macjiboter/shared-constants";
 import { CatCollection } from "./app/collections/cat";
 import { CatPhotoCollection } from "./app/collections/cat-photo";
+import { SponsorshipCollection } from "./app/collections/sponsorship";
 
 const LIB_KEYS = ["shared-constants", "shared-types"];
 
@@ -34,5 +35,5 @@ export default buildConfig({
     }),
     dateFormat: DEFAULT_DATE_FORMAT,
   },
-  collections: [SponsorCollection, CatCollection, CatPhotoCollection],
+  collections: [CatCollection, CatPhotoCollection, SponsorCollection, SponsorshipCollection],
 });
