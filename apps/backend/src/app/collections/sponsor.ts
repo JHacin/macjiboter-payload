@@ -5,9 +5,10 @@ import {
   DEFAULT_DATE_FORMAT,
   PERSON_GENDER_SELECT_OPTIONS,
 } from "@macjiboter/shared-constants";
+import { CollectionSlug } from "../types";
 
 export const SponsorCollection: CollectionConfig = {
-  slug: "botri",
+  slug: CollectionSlug.Sponsors,
   labels: {
     singular: "Boter",
     plural: "Botri",

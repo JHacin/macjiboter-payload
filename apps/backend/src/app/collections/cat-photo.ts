@@ -1,7 +1,8 @@
 import { CollectionConfig } from "payload/types";
+import { CollectionSlug } from "../types";
 
 export const CatPhotoCollection: CollectionConfig = {
-  slug: "muce-slike",
+  slug: CollectionSlug.CatPhotos,
   labels: {
     singular: "Slika muce",
     plural: "Muce - slike",

@@ -2,9 +2,10 @@ import { CollectionConfig } from "payload/types";
 import { PAYMENT_TYPE_SELECT_OPTIONS } from "../../../../../libs/shared-constants/src/lib/sponsorship";
 import { PaymentType } from "@macjiboter/shared-types";
 import { DEFAULT_DATE_FORMAT } from "@macjiboter/shared-constants";
+import { CollectionSlug } from "../types";
 
 export const SponsorshipCollection: CollectionConfig = {
-  slug: "botrstva",
+  slug: CollectionSlug.Sponsorships,
   labels: {
     singular: "Botrstvo",
     plural: "Botrstva",
@@ -25,21 +26,21 @@ export const SponsorshipCollection: CollectionConfig = {
     {
       name: "cat",
       type: "relationship",
-      relationTo: "muce",
+      relationTo: CollectionSlug.Cats,
       label: "Muca",
       required: true,
     },
     {
       name: "sponsor",
       type: "relationship",
-      relationTo: "botri",
+      relationTo: CollectionSlug.Sponsors,
       label: "Boter",
       required: true,
     },
     {
       name: "payer",
       type: "relationship",
-      relationTo: "botri",
+      relationTo: CollectionSlug.Sponsors,
       label: "Plačnik",
     },
     {
