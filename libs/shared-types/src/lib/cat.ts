@@ -2,6 +2,7 @@ import { CollectionItemResponseBase } from "./shared";
 
 export interface Cat extends CollectionItemResponseBase {
   name: string;
+  slug: string;
   gender: CatGender;
   status: CatStatus;
   summary: string;

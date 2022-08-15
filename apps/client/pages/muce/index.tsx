@@ -208,7 +208,7 @@ const CatsList: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>>
               <strong>Datum vnosa</strong>: {cat.createdAt}
             </div>
             <div>
-              <Link href={`/muce/${cat.id}`}>
+              <Link href={`/muce/${cat.slug}`}>
                 <a>Pojdi na opis</a>
               </Link>
             </div>

@@ -2,30 +2,46 @@ import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
 import { Cat, QueryKey } from "@macjiboter/shared-types";
 import { dehydrate, DehydratedState, QueryClient, useQuery } from "@tanstack/react-query";
 import { CAT_GENDER_LABELS, CAT_STATUS_LABELS } from "@macjiboter/shared-constants";
+import { useRouter } from "next/router";
+import qs from "qs";
+import { PaginatedDocs } from "payload/dist/mongoose/types";
 
-const getCat = async (id: string): Promise<Cat> => {
-  const res = await fetch(`http://localhost:3333/api/muce/${id}`);
-  return await res.json();
+const getCat = async (slug: string): Promise<Cat> => {
+  const query = {
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  };
+  const stringifiedQuery = qs.stringify(query, { addQueryPrefix: true });
+
+  const res = await fetch(`http://localhost:3333/api/muce/${stringifiedQuery}`);
+  const data: PaginatedDocs<Cat> = await res.json();
+
+  return data.docs[0];
 };
 
 export const getServerSideProps: GetServerSideProps<
-  { dehydratedState: DehydratedState; id: string },
-  { id: string }
-> = async ({ params: { id } }) => {
+  { dehydratedState: DehydratedState },
+  { slug: string }
+> = async ({ params: { slug } }) => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery([QueryKey.Cat, id], () => getCat(id));
+  await queryClient.prefetchQuery([QueryKey.Cat, slug], () => getCat(slug));
 
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
-      id,
     },
   };
 };
 
-const CatDetails: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ id }) => {
-  const { data: cat } = useQuery([QueryKey.Cat, id], () => getCat(id));
+const CatDetails: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = () => {
+  const router = useRouter();
+  const slug = router.query.slug as string;
+
+  const { data: cat } = useQuery([QueryKey.Cat, slug], () => getCat(slug));
 
   return (
     <div>
