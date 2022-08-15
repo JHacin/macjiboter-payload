@@ -1,14 +1,14 @@
-import { MongoDocument } from "./shared";
+import { CollectionItemResponseBase } from "./shared";
 
-export interface Cat extends MongoDocument {
+export interface Cat extends CollectionItemResponseBase {
   name: string;
   gender: CatGender;
   status: CatStatus;
   summary: string;
   description: any[]; // Todo: slateJS type
-  dateOfBirth: Date | null;
-  dateAcceptedToShelter: Date | null;
-  dateAcceptedToSponsorshipProgram: Date | null;
+  dateOfBirth: string | null;
+  dateAcceptedToShelter: string | null;
+  dateAcceptedToSponsorshipProgram: string | null;
   photos: any[]; // Todo
 }
 

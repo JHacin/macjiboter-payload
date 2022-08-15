@@ -22,6 +22,7 @@ const LIB_ALIASES: Record<string, string> = LIB_KEYS.reduce((acc, curr) => {
 }, {});
 
 export default buildConfig({
+  cors: "*",
   admin: {
     webpack: (config) => ({
       ...config,

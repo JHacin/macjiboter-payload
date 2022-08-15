@@ -1,5 +1,5 @@
-export interface MongoDocument {
+export interface CollectionItemResponseBase {
   id: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
