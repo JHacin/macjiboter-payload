@@ -79,7 +79,6 @@ export const SponsorshipCollection: CollectionConfig = {
       name: "requestedDuration",
       type: "number",
       label: "Trajanje (v mesecih)",
-      required: true,
       min: 0,
     },
     {

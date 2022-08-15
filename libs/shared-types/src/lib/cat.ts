@@ -1,3 +1,17 @@
+import { MongoDocument } from "./shared";
+
+export interface Cat extends MongoDocument {
+  name: string;
+  gender: CatGender;
+  status: CatStatus;
+  summary: string;
+  description: any[]; // Todo: slateJS type
+  dateOfBirth: Date | null;
+  dateAcceptedToShelter: Date | null;
+  dateAcceptedToSponsorshipProgram: Date | null;
+  photos: any[]; // Todo
+}
+
 export enum CatGender {
   Male = "1",
   Female = "2",

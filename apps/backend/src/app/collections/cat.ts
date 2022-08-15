@@ -16,6 +16,9 @@ export const CatCollection: CollectionConfig = {
     useAsTitle: "name",
     defaultColumns: ["name", "status"],
   },
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: "name",
