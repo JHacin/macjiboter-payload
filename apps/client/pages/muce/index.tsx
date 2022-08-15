@@ -6,6 +6,7 @@ import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import qs from "qs";
 import { useRef, useState } from "react";
 import { debounce, range } from "lodash-es";
+import Link from "next/link";
 
 type GetCatsSort = "createdAt" | "-createdAt";
 
@@ -53,7 +54,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-const Muce: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = () => {
+const CatsList: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = () => {
   const [queryParams, setQueryParams] = useState(defaultQueryParams);
   const {
     data: { docs, hasPrevPage, hasNextPage, totalPages, page },
@@ -206,6 +207,11 @@ const Muce: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
             <div>
               <strong>Datum vnosa</strong>: {cat.createdAt}
             </div>
+            <div>
+              <Link href={`/muce/${cat.id}`}>
+                <a>Pojdi na opis</a>
+              </Link>
+            </div>
           </div>
         ))}
       </div>
@@ -213,4 +219,4 @@ const Muce: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
   );
 };
 
-export default Muce;
+export default CatsList;
