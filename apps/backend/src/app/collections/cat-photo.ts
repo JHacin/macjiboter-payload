@@ -10,6 +10,9 @@ export const CatPhotoCollection: CollectionConfig = {
   admin: {
     useAsTitle: "alt",
   },
+  access: {
+    read: () => true,
+  },
   upload: {
     staticURL: "/uploads/muce-slike",
     staticDir: "uploads/cat-photos",

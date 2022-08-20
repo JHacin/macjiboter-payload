@@ -5,6 +5,7 @@ import { CAT_GENDER_LABELS, CAT_STATUS_LABELS } from "@macjiboter/shared-constan
 import { useRouter } from "next/router";
 import qs from "qs";
 import { PaginatedDocs } from "payload/dist/mongoose/types";
+import Image from "next/image";
 
 const getCat = async (slug: string): Promise<Cat> => {
   const query = {
@@ -45,6 +46,25 @@ const CatDetails: NextPage<InferGetServerSidePropsType<typeof getServerSideProps
 
   return (
     <div>
+      <div>
+        <h2>Slike</h2>
+        <div>
+          {cat.photos
+            .map((photo) => photo.photo)
+            .filter((photo) => photo.sizes.thumbnail.url)
+            .map((photo) => (
+              <div key={photo.id}>
+                <Image
+                  width={photo.sizes.thumbnail.width}
+                  height={photo.sizes.thumbnail.height}
+                  src={`http://localhost:3333${photo.sizes.thumbnail.url}`}
+                  alt={photo.alt}
+                />
+              </div>
+            ))}
+        </div>
+      </div>
+
       <div>
         <strong>Ime</strong>: {cat.name}
       </div>

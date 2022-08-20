@@ -7,6 +7,7 @@ import qs from "qs";
 import { useRef, useState } from "react";
 import { debounce, range } from "lodash-es";
 import Link from "next/link";
+import Image from "next/image";
 
 type GetCatsSort = "createdAt" | "-createdAt";
 
@@ -189,6 +190,16 @@ const CatsList: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>>
 
         {docs.map((cat) => (
           <div key={cat.id} style={{ border: "2px solid red", padding: "1rem", margin: "1rem" }}>
+            {cat.photos[0]?.photo.sizes.thumbnail.url && (
+              <div>
+                <Image
+                  src={`http://localhost:3333${cat.photos[0].photo.sizes.thumbnail.url}`}
+                  alt={cat.photos[0].photo.alt}
+                  width={cat.photos[0].photo.sizes.thumbnail.width}
+                  height={cat.photos[0].photo.sizes.thumbnail.height}
+                />
+              </div>
+            )}
             <div>
               <strong>Ime</strong>: {cat.name}
             </div>

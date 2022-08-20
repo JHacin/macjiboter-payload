@@ -10,7 +10,7 @@ export interface Cat extends CollectionItemResponseBase {
   dateOfBirth: string | null;
   dateAcceptedToShelter: string | null;
   dateAcceptedToSponsorshipProgram: string | null;
-  photos: any[]; // Todo
+  photos: { photo: CatPhoto; id: string }[];
 }
 
 export enum CatGender {
@@ -24,4 +24,25 @@ export enum CatStatus {
   NotSeekingSponsors = "3",
   Adopted = "4",
   RIP = "5",
+}
+
+interface CatPhoto extends CollectionItemResponseBase {
+  alt: string;
+  filename: string;
+  mimeType: string;
+  filesize: number;
+  width: number;
+  height: number;
+  url: string;
+  sizes: Record<
+    "thumbnail" | "card" | "full",
+    {
+      width: number;
+      height: number;
+      mimeType: string;
+      filesize: number;
+      filename: string;
+      url: string;
+    }
+  >;
 }
